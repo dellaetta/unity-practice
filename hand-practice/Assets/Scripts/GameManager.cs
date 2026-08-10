@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI timerText; 
     [SerializeField] TimerScript timer;
 
-    int score = 0;
+    public int score = 0;
 
     void Start()
     {
@@ -20,11 +19,13 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        timer.ReduceTime();
         timer.ResetTimer();
     }
 
     public void GameOver()
     {
+        timer.initTime = 5;
         timer.ResetTimer();
         timer.StopTimer();
         SceneManager.LoadScene(0);

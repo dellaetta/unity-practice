@@ -530,8 +530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 236, y: 0}
-  m_SizeDelta: {x: 45.8872, y: 50}
+  m_AnchoredPosition: {x: 399.46802, y: 0}
+  m_SizeDelta: {x: 154.8658, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581083893
 MonoBehaviour:
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10
+  m_text: '5
 
 '
   m_isRightToLeft: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1603,8 +1603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   scoreText: {fileID: 1122760315}
-  timerText: {fileID: 581083893}
   timer: {fileID: 383211922}
+  score: 0
 --- !u!4 &1769828276
 Transform:
   m_ObjectHideFlags: 0
