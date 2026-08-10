@@ -8,13 +8,8 @@ public class TimerScript : MonoBehaviour
 
     [SerializeField] float initTime; 
     [SerializeField] TextMeshProUGUI timerCount; 
-
-    void Start()
-    {
-        timeRemaining = initTime;
-        timerCount.text = Mathf.RoundToInt(timeRemaining).ToString();
-    }
-
+    [SerializeField] GameManager gameManager;
+    
     void Update()
     {
         if (!isRunning) return;
@@ -25,6 +20,7 @@ public class TimerScript : MonoBehaviour
         {
             timeRemaining = 0;
             isRunning = false;
+            gameManager.GameOver();
         }
 
         timerCount.text = Mathf.RoundToInt(timeRemaining).ToString();
@@ -43,6 +39,7 @@ public class TimerScript : MonoBehaviour
     public void ResetTimer()
     {
         timeRemaining = initTime;
+        timerCount.text = Mathf.RoundToInt(timeRemaining).ToString();
         isRunning = true;
     }
 }

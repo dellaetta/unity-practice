@@ -300,6 +300,7 @@ MonoBehaviour:
   isRunning: 0
   initTime: 5
   timerCount: {fileID: 581083893}
+  gameManager: {fileID: 1769828275}
 --- !u!1 &384273372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.14, y: 0}
+  m_AnchoredPosition: {x: 43, y: 0}
   m_SizeDelta: {x: 45.8872, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122760315
@@ -1318,9 +1319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1605,7 +1604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   scoreText: {fileID: 1122760315}
   timerText: {fileID: 581083893}
-  timer: {fileID: 383211920}
+  timer: {fileID: 383211922}
 --- !u!4 &1769828276
 Transform:
   m_ObjectHideFlags: 0
