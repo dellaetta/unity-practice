@@ -1,5 +1,4 @@
 import cv2
-import logging
 import mediapipe as mp
 
 from mediapipe.tasks import python
