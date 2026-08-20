@@ -1,16 +1,22 @@
 import cv2
 import logging
 import time
-import mediapipe as mp
+import socket
 
+import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
 latest_frame = None
- 
+gesture_name = "None"
+
+# Open_Palm, Victory, Closed_Fist, Thumb_Up, Thumb_Down, ILoveYou, Pointing_Up
 #################### Functions ############################
+
 def draw_results(result, output_image: mp.Image, timestamp_ms: int):
     global latest_frame
+    global gesture_name
+
     frame = output_image.numpy_view().copy() # convert numpy into cv frame
     height, width, _ = frame.shape
     
@@ -55,13 +61,26 @@ def draw_results(result, output_image: mp.Image, timestamp_ms: int):
             cv2.putText(frame, text, (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
 
     latest_frame = frame
+
+#################### Socket Setup ############################
+
+IP = "localhost"
+PORT = 5005
+
+# define udp socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+def send_gesture(gesture):
+    message = gesture.encode("utf-8")
+    sock.sendto(message, (IP, PORT))
      
 
 #################### Camera Setup ############################
+
 cam = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION) # create camera
 cam.set(cv2.CAP_PROP_FRAME_WIDTH, 600)
 cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 500)
- 
+
 #################### Gesture Recognizer ############################
 
 # get model
@@ -95,6 +114,9 @@ with vision.GestureRecognizer.create_from_options(options) as recognizer:
 
         if latest_frame is None:
             latest_frame = frame
+
+        print(gesture_name)
+        send_gesture(gesture_name)
 
         cv2.imshow("Display", latest_frame)
 
