@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 
 public class GuideScript : MonoBehaviour
@@ -9,13 +11,21 @@ public class GuideScript : MonoBehaviour
     [SerializeField] GameManager gameManager;
 
     private Key[] keys = { Key.A, Key.W, Key.S, Key.D, Key.K, Key.L, Key.F };
+    private Dictionary<string, string> emojis = new()
+        {
+            ["Open_Palm"]="✋", ["Victory"]="✌️", ["Closed_Fist"]="✊",
+            ["Thumb_Up"]="👍", ["Thumb_Down"]="👎", ["ILoveYou"]="🤟",
+            ["Pointing_Up"]="👆"
+        };
     private Key targetKey;
+    private string targetEmoji;
 
     void Start()
     {
         // Set the target key
         targetKey = keys[Random.Range(0, keys.Length)];
-        guideText.text = targetKey.ToString();
+        targetEmoji = emojis.Keys.ElementAt(Random.Range(0, emojis.Count));
+        guideText.text = emojis[targetEmoji];
     }
 
     void Update()
