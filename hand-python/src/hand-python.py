@@ -115,13 +115,13 @@ with vision.GestureRecognizer.create_from_options(options) as recognizer:
         if latest_frame is None:
             latest_frame = frame
 
-        print(gesture_name)
         send_gesture(gesture_name)
 
         cv2.imshow("Display", latest_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
+        
 
 cam.release()
 cv2.destroyAllWindows()
