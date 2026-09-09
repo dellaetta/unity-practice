@@ -12,23 +12,20 @@ public class PlayerScript : MonoBehaviour
         {
             ["Open_Palm"]="✋", ["Victory"]="✌️", ["Closed_Fist"]="✊",
             ["Thumb_Up"]="👍", ["Thumb_Down"]="👎", ["ILoveYou"]="🤟",
-            ["Pointing_Up"]="👆"
+            ["Pointing_Up"]="👆", ["None"]=""
         };
 
 
     void Start()
     {
-        playerText.text = "✋";
+        playerText.text = "";
     }
 
     void Update()
     {
         string data = receiver.receivedData;
-        if (data != "None")
-        {
-            Debug.Log("Data: ");
-            Debug.Log(data);
-            playerText.text = emojis[data];
-        }
+        Debug.Log("Data: ");
+        Debug.Log(data);
+        playerText.text = emojis[data];
     }
 }

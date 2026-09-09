@@ -547,7 +547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TimerScript
   timeRemaining: 0
   isRunning: 0
-  initTime: 20
+  initTime: 5
   timerCount: {fileID: 581083893}
   gameManager: {fileID: 1769828275}
 --- !u!1 &384273372
